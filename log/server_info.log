@@ -1,0 +1,144 @@
+[association]2022/04/15 - 20:32:09.084	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:48	User added successfully,user:tanyilin
+[association]2022/04/15 - 20:39:14.765	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:49	User added successfully,user:tanyilin
+[association]2022/04/15 - 20:57:47.208	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:49	User added successfully,user:tanyilin11
+[association]2022/04/15 - 21:02:28.667	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:50	User added successfully,user:tanyilin11
+[association]2022/04/15 - 21:04:02.683	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:50	User added successfully,user:tanyilin11
+[association]2022/04/15 - 21:12:23.623	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:51	User added successfully,user:tanyilin111121
+[association]2022/04/15 - 21:17:24.812	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:38	User added successfully,user:asd
+[association]2022/04/15 - 21:29:22.578	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:38	User added successfully,user:wer
+[association]2022/04/15 - 21:35:23.614	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:38	User added successfully,user:ert
+[association]2022/04/15 - 21:36:25.325	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:37	User added successfully,user:ert
+[association]2022/04/15 - 21:47:53.089	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:37	User added successfully,user:qwe
+[association]2022/04/15 - 22:05:05.592	[34minfo[0m	D:/goProject/src/association/utils/time.go:15	2022-04-15 22:05:05.5823517 +0800 CST m=+3.597094601
+[association]2022/04/15 - 22:05:05.604	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:37	User added successfully,user:qqq
+[association]2022/04/15 - 22:15:43.442	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:37	User added successfully,user:qqq
+[association]2022/04/16 - 17:03:46.610	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 17:05:29.120	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 17:09:07.890	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 21:52:56.045	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 21:59:39.490	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:44	User added successfully,UserID:37853339769114624
+[association]2022/04/16 - 22:00:36.417	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:00:40.649	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:44	User added successfully,UserID:37853596280164352
+[association]2022/04/16 - 22:01:28.191	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:05:48.528	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:20:54.573	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:32:57.150	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:34:43.833	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:37:00.311	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:37:58.187	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:39:04.439	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:39:46.615	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:45:44.079	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:50:40.967	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:50:43.832	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:44	User added successfully,UserID:37866192542633984
+[association]2022/04/16 - 22:52:09.354	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/16 - 22:53:31.221	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 09:52:44.278	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 09:54:28.859	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 09:57:37.863	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 09:58:31.193	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 10:02:58.854	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 10:03:08.604	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:105	Teacher added successfully,TeacherID:38035410743463936
+[association]2022/04/17 - 10:04:21.179	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 10:04:24.501	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:106	Teacher added successfully,TeacherID:38035729103720448
+[association]2022/04/17 - 10:09:13.069	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 10:10:29.252	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:47	User added successfully,UserID:38037258997075968
+[association]2022/04/17 - 10:11:53.096	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 10:16:44.070	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 10:18:03.999	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 10:18:29.954	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 10:19:30.262	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/17 - 10:19:55.849	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:77	Teacher added successfully,TeacherID:38039635472945152
+[association]2022/04/19 - 22:20:30.282	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/19 - 22:24:32.629	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/19 - 22:25:05.235	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/19 - 22:28:56.061	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/19 - 22:29:20.387	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/19 - 22:30:02.397	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/19 - 22:30:08.357	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:47	User added successfully,UserID:38948174160728064
+[association]2022/04/19 - 22:39:08.974	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:128	邮箱验证码:113516
+[association]2022/04/19 - 22:39:30.353	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:106	Teacher added successfully,TeacherID:38950531338604544
+[association]2022/04/19 - 22:41:42.239	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/19 - 22:43:34.990	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/19 - 22:45:13.354	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/19 - 22:48:01.469	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/20 - 12:36:35.096	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/20 - 12:42:19.398	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/20 - 12:44:21.595	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/20 - 12:44:28.976	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:48	用户:tanyilin,登录成功
+[association]2022/04/20 - 21:33:12.753	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/20 - 21:33:26.978	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:129	邮箱验证码:261798
+[association]2022/04/20 - 21:35:43.509	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/20 - 21:35:51.985	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:129	邮箱验证码:681002
+[association]2022/04/20 - 21:37:09.327	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/20 - 21:37:16.469	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:129	邮箱验证码:026654
+[association]2022/04/20 - 21:39:58.738	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/20 - 21:40:06.972	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:129	邮箱验证码:059360
+[association]2022/04/20 - 21:42:41.750	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/20 - 21:43:02.373	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:129	邮箱验证码:587397
+[association]2022/04/20 - 22:44:27.953	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/21 - 09:58:05.660	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/21 - 09:58:36.782	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:129	邮箱验证码:980658
+[association]2022/04/21 - 10:33:30.041	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/21 - 10:37:45.771	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/21 - 10:52:19.789	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/21 - 10:54:52.873	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/21 - 11:46:55.714	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/21 - 15:37:37.163	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/21 - 21:39:07.673	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/22 - 16:17:04.897	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/22 - 16:20:27.921	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:47	User added successfully,UserID:39942306287063040
+[association]2022/04/22 - 16:20:42.709	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:129	邮箱验证码:333745
+[association]2022/04/22 - 16:22:32.341	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/22 - 16:22:39.727	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:129	邮箱验证码:089678
+[association]2022/04/22 - 16:22:53.537	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:107	Teacher added successfully,TeacherID:39942916994502656
+[association]2022/04/22 - 16:24:50.549	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:56	用户:tanyilin,登录成功
+[association]2022/04/22 - 16:36:40.613	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/22 - 16:36:45.078	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:56	用户:tanyilin,登录成功
+[association]2022/04/22 - 16:37:44.686	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/22 - 16:40:00.596	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/22 - 16:40:20.044	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:56	用户:tanyilin,登录成功
+[association]2022/04/23 - 15:26:37.383	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:27:53.625	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:27:59.659	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:48	用户:tanyilin,登录成功
+[association]2022/04/23 - 15:31:02.779	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:33:18.907	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:34:34.538	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:36:01.421	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:48:06.793	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:48:51.500	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:48:55.826	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:48	用户:tanyilin,登录成功
+[association]2022/04/23 - 15:50:59.526	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:53:07.206	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:54:07.060	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:48	用户:tanyilin,登录成功
+[association]2022/04/23 - 15:55:47.418	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:55:51.322	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:48	用户:tanyilin,登录成功
+[association]2022/04/23 - 15:56:44.759	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:56:49.826	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:48	用户:tanyilin,登录成功
+[association]2022/04/23 - 15:59:05.346	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 15:59:11.354	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:48	用户:tanyilin,登录成功
+[association]2022/04/23 - 16:02:43.220	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 16:02:55.143	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:48	用户:tanyilin,登录成功
+[association]2022/04/23 - 16:03:04.720	[34minfo[0m	D:/goProject/src/association/middleware/casbin_rbac.go:34	obj:/association/tyl
+ act:GET
+ sub:GET
+[association]2022/04/23 - 16:03:59.117	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 16:04:04.163	[34minfo[0m	D:/goProject/src/association/middleware/casbin_rbac.go:40	obj:/association/tyl
+ act:GET
+ sub:GET
+[association]2022/04/23 - 16:05:47.083	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 16:05:50.864	[34minfo[0m	D:/goProject/src/association/middleware/casbin_rbac.go:42	obj:/association/tyl
+ act:GET
+ sub:GET
+[association]2022/04/23 - 16:09:05.547	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 16:21:43.689	[34minfo[0m	D:/goProject/src/association/middleware/casbin_rbac.go:41	obj:/association/tyl
+ act:GET
+ sub:GET
+[association]2022/04/23 - 16:22:51.251	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 16:23:49.824	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/23 - 16:24:22.118	[34minfo[0m	D:/goProject/src/association/middleware/casbin_rbac.go:34	obj:/association/tyl
+ act:GET
+ sub:GET
+[association]2022/04/23 - 16:24:38.496	[34minfo[0m	D:/goProject/src/association/middleware/casbin_rbac.go:34	obj:/association/tyl
+ act:GET
+ sub:GET

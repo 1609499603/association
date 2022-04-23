@@ -1,0 +1,24 @@
+[association]2022/04/15 - 20:32:09.084	[31merror[0m	D:/goProject/src/association/apis/system/register.go:44	insert error,user:tanyilin,error:Error 1146: Table 'ass.users' doesn't exist
+[association]2022/04/15 - 20:34:57.383	[31merror[0m	D:/goProject/src/association/apis/system/register.go:44	insert error,user:tanyilin,error:Error 1292: Incorrect datetime value: '1650026097363463100' for column 'create_time' at row 1
+[association]2022/04/15 - 20:35:38.411	[31merror[0m	D:/goProject/src/association/apis/system/register.go:44	insert error,user:tanyilin,error:Error 1146: Table 'ass.users' doesn't exist
+[association]2022/04/15 - 20:36:31.540	[31merror[0m	D:/goProject/src/association/apis/system/register.go:44	insert error,user:tanyilin,error:Error 1292: Incorrect datetime value: '1650026191537304100' for column 'create_time' at row 1
+[association]2022/04/15 - 20:37:18.708	[31merror[0m	D:/goProject/src/association/apis/system/register.go:44	insert error,user:tanyilin,error:Error 1292: Incorrect datetime value: '2022-04-15 20:37:18.6996621 +0800 CST m=+3.027050101' for column 'create_time' at row 1
+[association]2022/04/15 - 20:54:57.253	[31merror[0m	D:/goProject/src/association/apis/system/register.go:44	insert error,user:tanyilin11,error:Error 1062: Duplicate entry '123' for key 'users.PRIMARY'
+[association]2022/04/15 - 20:56:39.461	[31merror[0m	D:/goProject/src/association/apis/system/register.go:44	insert error,user:tanyilin11,error:Error 1062: Duplicate entry '123' for key 'users.PRIMARY'
+[association]2022/04/15 - 21:01:39.888	[31merror[0m	D:/goProject/src/association/apis/system/register.go:44	insert error,user:tanyilin11,error:Error 1292: Incorrect datetime value: '0000-00-00' for column 'create_time' at row 1
+[association]2022/04/15 - 21:23:39.287	[31merror[0m	D:/goProject/src/association/utils/snowflake/snowflake.go:23	ID generation failed,error:Node number must be between 0 and 1023
+[association]2022/04/15 - 21:43:06.586	[31merror[0m	D:/goProject/src/association/apis/system/register.go:32	insert error,user:qwe,error:Error 1292: Incorrect datetime value: '0000-00-00' for column 'create_time' at row 1
+[association]2022/04/15 - 21:45:58.143	[31merror[0m	D:/goProject/src/association/apis/system/register.go:32	insert error,user:qwe,error:Error 1292: Incorrect datetime value: '0000-00-00' for column 'create_time' at row 1
+[association]2022/04/15 - 22:18:50.537	[31merror[0m	D:/goProject/src/association/apis/system/register.go:32	insert error,user:aaa,error:Error 1292: Incorrect datetime value: '1650032330' for column 'create_time' at row 1
+[association]2022/04/19 - 22:19:17.178	[31merror[0m	D:/goProject/src/association/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it."}
+[association]2022/04/19 - 22:41:53.596	[31merror[0m	D:/goProject/src/association/apis/system/userLogin.go:39	获取token失败,error:key is of invalid type
+[association]2022/04/19 - 22:48:03.691	[31merror[0m	D:/goProject/src/association/apis/system/userLogin.go:39	获取token失败,error:key is of invalid type
+[association]2022/04/23 - 15:26:48.059	[31merror[0m	D:/goProject/src/association/apis/system/userLogin.go:39	获取token失败,error:key is of invalid type
+[association]2022/04/23 - 15:53:10.544	[31merror[0m	D:/goProject/src/association/utils/jwt.go:40	token error:token is expired by 4m15s
+[association]2022/04/23 - 15:54:15.511	[31merror[0m	D:/goProject/src/association/utils/jwt.go:40	token error:token is expired by 8s
+[association]2022/04/23 - 15:55:58.127	[31merror[0m	D:/goProject/src/association/utils/jwt.go:40	token error:token is expired by 7s
+[association]2022/04/23 - 15:56:57.279	[31merror[0m	D:/goProject/src/association/utils/jwt.go:40	token error:token is expired by 8s
+[association]2022/04/23 - 15:59:18.943	[31merror[0m	D:/goProject/src/association/utils/jwt.go:40	token error:tokenstring should not contain 'bearer '
+[association]2022/04/23 - 15:59:18.944	[31merror[0m	D:/goProject/src/association/utils/clamis.go:13	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在Authorization且claims是否为规定结构
+[association]2022/04/23 - 15:59:18.945	[31merror[0m	D:/goProject/src/association/middleware/casbin_rbac.go:19	CasbinHander JWT Parse failed,error:tokenstring should not contain 'bearer '
+[association]2022/04/23 - 16:24:38.496	[31merror[0m	D:/goProject/src/association/middleware/casbin_rbac.go:29	Casbin enforce failed,error:invalid policy size: expected 3, got 4, pvals: [/association/tyl GET 2 1]

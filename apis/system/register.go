@@ -1,0 +1,140 @@
+package system
+
+import (
+	"association/common/response"
+	"association/global"
+	models "association/modules"
+	"association/modules/dto"
+	"association/utils"
+	"association/utils/snowflake"
+	"context"
+	"github.com/gin-gonic/gin"
+	"strconv"
+)
+
+// Register 注册
+func Register(c *gin.Context) {
+
+	u := new(dto.RegUser)
+	//ShouldBindJSON的作用就是检查 获取到的数据是否与结构体u的类型一致，若不一致，抛出错误，若一致则赋值
+	if err := c.ShouldBindJSON(u); err != nil {
+		response.FailWithMessage("JSON inconsistent type", c)
+		return
+	}
+	if IsUsername(u.Username) {
+		//账号存在
+		response.FailWithMessage("username already exists", c)
+		return
+	}
+
+	u.Password = utils.MD5V([]byte(u.Password))
+	user := new(models.User)
+	utils.StructAssign(user, u)
+	user.Id = snowflake.GenID()
+	tm := utils.NowTime()
+	user.UpdateTime = tm
+	user.CreateTime = tm
+	if u.Role == 0 {
+		user.StatusId = 1
+	} else if u.Role == 1 {
+		user.StatusId = 4
+	}
+	if err := registerService.InsertUser(*user); err != nil {
+		response.FailWithMessage("insert error", c)
+		return
+	}
+
+	global.ASS_LOG.Info("User added successfully,UserID:" + strconv.FormatInt(user.Id, 10))
+	m := make(map[string]int64, 1)
+	m["id"] = user.Id
+	m["role"] = int64(user.Role)
+	response.OkWithData(m, c)
+}
+
+// InsertTeacher 身份为老师
+func InsertTeacher(c *gin.Context) {
+	t := new(dto.RegTeacher)
+	if err := c.ShouldBindJSON(t); err != nil {
+		response.FailWithMessage("JSON inconsistent type", c)
+		return
+	}
+	//验证邮箱验证码是否正确
+	if emailStr := global.ASS_REDIS.Get(context.Background(), t.Email).Val(); emailStr != t.EmailStr {
+		response.FailWithMessage("Email verification code failed", c)
+		return
+	}
+	teacher := new(models.Teacher)
+	utils.StructAssign(teacher, t)
+	teacher.Id = snowflake.GenID()
+	teacher.AssociationId = 0
+	teacher.IsDeleted = 0
+	tm := utils.NowTime()
+	teacher.UpdateTime = tm
+	teacher.CreateTime = tm
+	if err := registerService.InsertTeacher(*teacher); err != nil {
+		response.FailWithMessage("insert error", c)
+		return
+	}
+	global.ASS_LOG.Info("Teacher added successfully,TeacherID:" + strconv.FormatInt(teacher.Id, 10))
+	response.Ok(c)
+}
+
+// InsertStudent 身份为学生
+func InsertStudent(c *gin.Context) {
+	s := new(dto.RegStudent)
+	if err := c.ShouldBindJSON(s); err != nil {
+		response.FailWithMessage("JSON inconsistent type", c)
+		return
+	}
+	//验证邮箱验证码是否正确
+	if emailStr := global.ASS_REDIS.Get(context.Background(), s.Email).Val(); emailStr != s.EmailStr {
+		response.FailWithMessage("Email verification code failed", c)
+		return
+	}
+	student := new(models.Student)
+	utils.StructAssign(student, s)
+	student.Id = snowflake.GenID()
+	student.AssociationId = 0
+	student.IsDeleted = 0
+	tm := utils.NowTime()
+	student.UpdateTime = tm
+	student.CreateTime = tm
+
+	if err := registerService.InsertStudent(*student); err != nil {
+		response.FailWithMessage("insert error", c)
+		return
+	}
+	global.ASS_LOG.Info("Teacher added successfully,TeacherID:" + strconv.FormatInt(student.Id, 10))
+	response.Ok(c)
+}
+
+// Email 根据邮箱获取验证码
+func Email(c *gin.Context) {
+	email := new(dto.RegEmail)
+	if err := c.ShouldBindJSON(email); err != nil {
+		response.FailWithMessage("email type failed", c)
+		return
+	}
+	//先判断redis中是否存在验证码
+	if emailStr := global.ASS_REDIS.Get(context.Background(), email.Email).String(); emailStr != "" {
+		//存在则删除原有验证码
+		global.ASS_REDIS.Del(context.Background(), email.Email)
+	}
+	//发送邮件，并获取验证码
+	code := utils.Send(email.Email)
+	//添加到redis设置过期时间为1分钟
+	global.ASS_REDIS.Set(context.Background(), email.Email, code, 60*1000*1000*1000)
+	m := make(map[string]string, 1)
+	m["emailStr"] = code
+	global.ASS_LOG.Info("邮箱验证码:" + code)
+	response.OkWithMessage("发送成功", c)
+}
+
+// IsUsername 检查账号是否存在
+func IsUsername(username string) bool {
+	_, s := registerService.IsUsername(username)
+	if s == username {
+		return true
+	}
+	return false
+}
