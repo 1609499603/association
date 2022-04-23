@@ -24,6 +24,7 @@ func Run() {
 	}
 	auth.Use(middleware.JWTAuthMiddleware()).Use(middleware.CasbinHander())
 	{
+		//123
 		auth.GET("/home")
 	}
 	r.Run(":8080")
