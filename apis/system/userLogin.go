@@ -34,8 +34,12 @@ func Login(c *gin.Context) {
 	}
 	online := new(models.OnlineUser)
 	global.ASS_REDIS.Get(context.Background(), strconv.FormatInt(u.Id, 10)).Scan(online)
-	if online.Token == "" {
-		response.OkWithDetailed(gin.H{"token": online.Token}, "用户已在线", c)
+	if online.Token != "" {
+		response.OkWithDetailed(models.LoginRes{
+			Username: u.Username,
+			Token:    online.Token,
+		}, "登陆成功", c)
+		global.ASS_LOG.Info("用户:" + u.Username + ",登录成功")
 		return
 	}
 
@@ -80,12 +84,10 @@ func Login(c *gin.Context) {
 
 }
 
-// Logout 登出,h
+// Logout 登出
 func Logout(c *gin.Context) {
 	id := c.GetInt64("id")
-	a, _ := c.Get("onlineUser")
-	v := time.Duration(c.GetInt64("expiresAt"))
-	err := global.ASS_REDIS.Set(context.Background(), strconv.FormatInt(id, 10), a, v).Err()
+	err := global.ASS_REDIS.Get(context.Background(), strconv.FormatInt(id, 10)).Err()
 	if err != nil {
 		response.FailWithMessage("下线失败,请联系管理员", c)
 		return
