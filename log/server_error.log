@@ -22,3 +22,5 @@
 [association]2022/04/23 - 15:59:18.944	[31merror[0m	D:/goProject/src/association/utils/clamis.go:13	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在Authorization且claims是否为规定结构
 [association]2022/04/23 - 15:59:18.945	[31merror[0m	D:/goProject/src/association/middleware/casbin_rbac.go:19	CasbinHander JWT Parse failed,error:tokenstring should not contain 'bearer '
 [association]2022/04/23 - 16:24:38.496	[31merror[0m	D:/goProject/src/association/middleware/casbin_rbac.go:29	Casbin enforce failed,error:invalid policy size: expected 3, got 4, pvals: [/association/tyl GET 2 1]
+[association]2022/04/24 - 17:18:50.132	[31merror[0m	D:/goProject/src/association/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it."}
+[association]2022/04/25 - 16:22:40.995	[31merror[0m	D:/goProject/src/association/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it."}

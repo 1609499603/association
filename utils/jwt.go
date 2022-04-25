@@ -15,7 +15,7 @@ func CreateClaims(baseClaims request.BaseClaims) request.CustomClaims {
 		BufferTime: global.ASS_CONFIG.JWT.BufferTime,
 		StandardClaims: jwt.StandardClaims{
 			NotBefore: time.Now().Unix() - 1000,
-			ExpiresAt: time.Now().Add(time.Hour * 2).Unix(),
+			ExpiresAt: time.Now().Add(time.Hour * 24 * 7).Unix(),
 			Issuer:    global.ASS_CONFIG.JWT.Issuer,
 		},
 	}
