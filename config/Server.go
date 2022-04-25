@@ -6,4 +6,5 @@ type Server struct {
 	Redis  Redis  `mapstructure:"redis" json:"redis" yaml:"redis"`
 	JWT    JWT    `mapstructure:"jwt" json:"jwt" yaml:"jwt"`
 	Casbin Casbin `mapstructure:"casbin" json:"casbin" yaml:"casbin"`
+	System System `mapstructure:"system" json:"system" yaml:"system"`
 }

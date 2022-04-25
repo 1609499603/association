@@ -46,6 +46,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 		c.Set("username", mc.BaseClaims.Username)
 		c.Set("id", mc.BaseClaims.ID)
 		c.Set("authority", mc.BaseClaims.Authority)
+		c.Set("expiresAt", mc.ExpiresAt)
 		c.Next() // 后续的处理函数可以用过c.Get("username")来获取当前请求的用户信息
 	}
 }

@@ -22,16 +22,13 @@ type OnlineUser struct {
 	Username      string `json:"username"`      //用户名
 	LoginTime     int64  `json:"loginTime"`     //登录时间
 	LoginLocation string `json:"loginLocation"` // 归属地
-	Browser       string `json:"browser"`       // 浏览器
-	College       string `json:"College"`       // 学院
 	Ip            string `json:"ip"`            //ip地址
 	Token         string `json:"key"`           // token
 }
 
 type LoginRes struct {
-	Username  string `json:"username"`
-	Token     string `json:"token"`
-	ExpiresAt int64  `json:"expires_at"`
+	Username string `json:"username"`
+	Token    string `json:"token"`
 }
 
 type Context struct {

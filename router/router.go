@@ -24,7 +24,9 @@ func Run() {
 	}
 	auth.Use(middleware.JWTAuthMiddleware()).Use(middleware.CasbinHander())
 	{
-		//123
+		//登出
+		auth.DELETE("/logout", system.Logout)
+
 		auth.GET("/home")
 	}
 	r.Run(":8080")

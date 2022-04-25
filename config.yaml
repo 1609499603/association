@@ -33,3 +33,8 @@ jwt:
 
 casbin:
   model-path: './resource/rbac_model.conf'
+
+
+
+system:
+  ip2location_path: './IP2LOCATION-LITE-DB5.IPV6.BIN'
