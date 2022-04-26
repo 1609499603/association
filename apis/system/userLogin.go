@@ -33,7 +33,9 @@ func Login(c *gin.Context) {
 		return
 	}
 	online := new(models.OnlineUser)
-	global.ASS_REDIS.Get(context.Background(), strconv.FormatInt(u.Id, 10)).Scan(online)
+
+	bytes, _ := global.ASS_REDIS.Get(context.Background(), strconv.FormatInt(u.Id, 10)).Bytes()
+	_ = json.Unmarshal(bytes, online)
 	if online.Token != "" {
 		response.OkWithDetailed(models.LoginRes{
 			Username: u.Username,
@@ -84,8 +86,8 @@ func Login(c *gin.Context) {
 
 }
 
-// Logout 登出
-func Logout(c *gin.Context) {
+// LogoutU 登出
+func LogoutU(c *gin.Context) {
 	id := c.GetInt64("id")
 	err := global.ASS_REDIS.Get(context.Background(), strconv.FormatInt(id, 10)).Err()
 	if err != nil {
@@ -93,8 +95,4 @@ func Logout(c *gin.Context) {
 		return
 	}
 	response.OkWithMessage("已下线", c)
-}
-
-func OnlineNumber(c *gin.Context) {
-
 }
