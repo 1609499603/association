@@ -47,7 +47,7 @@ func Login(c *gin.Context) {
 		ID:        u.Id,
 		Username:  u.Username,
 		Authority: u.StatusId,
-	})
+	}, time.Now().Add(time.Hour*24*7).Unix())
 	token, err := utils.GenToken(claims)
 	if err != nil {
 		global.ASS_LOG.Error("获取token失败,error:" + err.Error())

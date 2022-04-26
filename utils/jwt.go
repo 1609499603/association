@@ -8,14 +8,15 @@ import (
 	"time"
 )
 
-func CreateClaims(baseClaims request.BaseClaims) request.CustomClaims {
+// CreateClaims 新建token声明
+func CreateClaims(baseClaims request.BaseClaims, expiresAt int64) request.CustomClaims {
 	// 创建一个我们自己的声明
 	c := request.CustomClaims{
 		BaseClaims: baseClaims,
 		BufferTime: global.ASS_CONFIG.JWT.BufferTime,
 		StandardClaims: jwt.StandardClaims{
 			NotBefore: time.Now().Unix() - 1000,
-			ExpiresAt: time.Now().Add(time.Hour * 24 * 7).Unix(),
+			ExpiresAt: expiresAt,
 			Issuer:    global.ASS_CONFIG.JWT.Issuer,
 		},
 	}
