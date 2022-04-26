@@ -1,10 +1,13 @@
 package middleware
 
 import (
+	"association/common/response"
+	"association/modules/system/request"
 	"association/utils"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strings"
+	"time"
 )
 
 // JWTAuthMiddleware 基于JWT的认证中间件
@@ -42,11 +45,33 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 			c.Abort()
 			return
 		}
+		//续签
+		a := mc.ExpiresAt - time.Now().Unix()
+		b := int64(86400000)
+		if a < b {
+			claims := utils.CreateClaims(request.BaseClaims{
+				ID:        mc.BaseClaims.ID,
+				Username:  mc.BaseClaims.Username,
+				Authority: mc.BaseClaims.Authority,
+			}, time.Now().Add(time.Hour*8).Unix())
+			token, err := utils.GenToken(claims)
+			if err != nil {
+				response.FailWithMessage("续签token失败", c)
+				return
+			}
+			contextSet(c, mc)
+			c.Request.Header.Set("Authorization", token)
+			c.Next()
+		}
 		// 将当前请求的username信息保存到请求的上下文c上
-		c.Set("username", mc.BaseClaims.Username)
-		c.Set("id", mc.BaseClaims.ID)
-		c.Set("authority", mc.BaseClaims.Authority)
-		c.Set("expiresAt", mc.ExpiresAt)
+		contextSet(c, mc)
 		c.Next() // 后续的处理函数可以用过c.Get("username")来获取当前请求的用户信息
 	}
+}
+
+func contextSet(c *gin.Context, mc *request.CustomClaims) {
+	c.Set("username", mc.BaseClaims.Username)
+	c.Set("id", mc.BaseClaims.ID)
+	c.Set("authority", mc.BaseClaims.Authority)
+	c.Set("expiresAt", mc.ExpiresAt)
 }
