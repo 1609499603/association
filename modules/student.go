@@ -1,11 +1,16 @@
 package models
 
+import (
+	"association/utils/snowflake"
+	"gorm.io/gorm"
+)
+
 // Student 学生表
 type Student struct {
-	//学生id
-	Id int64 `json:"id"`
+	gorm.Model
+
 	//学院
-	CollegeId int64 `json:"college_id"`
+	CollegeId uint `json:"college_id"`
 	//学号
 	StudentNumber string `json:"student_number"`
 	//姓名
@@ -21,10 +26,12 @@ type Student struct {
 	//班级
 	Class string `json:"class"`
 	//用户id
-	UserId int64 `json:"user_id"`
+	UserId uint `json:"user_id"`
 	//所属社团id
-	AssociationId int64 `json:"association_id"`
+	AssociationId uint `json:"association_id"`
+}
 
-	//逻辑删除，记录时间
-	Record
+func (s *Student) BeforeCreate(tx *gorm.DB) (err error) {
+	s.ID = uint(uint64(snowflake.GenID()))
+	return
 }

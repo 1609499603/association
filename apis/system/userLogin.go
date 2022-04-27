@@ -34,7 +34,7 @@ func Login(c *gin.Context) {
 	}
 	online := new(models.OnlineUser)
 
-	bytes, _ := global.ASS_REDIS.Get(context.Background(), strconv.FormatInt(u.Id, 10)).Bytes()
+	bytes, _ := global.ASS_REDIS.Get(context.Background(), strconv.FormatUint(uint64(u.ID), 10)).Bytes()
 	_ = json.Unmarshal(bytes, online)
 	if online.Token != "" {
 		response.OkWithDetailed(models.LoginRes{
@@ -46,7 +46,7 @@ func Login(c *gin.Context) {
 	}
 
 	claims := utils.CreateClaims(request.BaseClaims{
-		ID:        u.Id,
+		ID:        int64(u.ID),
 		Username:  u.Username,
 		Authority: u.StatusId,
 	}, time.Now().Add(time.Hour*24*7).Unix())
@@ -57,7 +57,7 @@ func Login(c *gin.Context) {
 		return
 	}
 	ip := utils.GetLocalIp()
-	online.Id = u.Id
+	online.Id = u.ID
 	online.Username = u.Username
 	online.LoginTime = time.Now().Unix()
 	online.LoginLocation = utils.Ip2LocationCity(ip)
@@ -72,7 +72,7 @@ func Login(c *gin.Context) {
 	parseToken, _ := utils.ParseToken(token)
 	var num int64
 	num = (parseToken.ExpiresAt - time.Now().Unix()) * 1000 * 1000 * 1000
-	onlineErr := global.ASS_REDIS.Set(context.Background(), strconv.FormatInt(u.Id, 10), marshal, time.Duration(num)).Err()
+	onlineErr := global.ASS_REDIS.Set(context.Background(), strconv.FormatUint(uint64(u.ID), 10), marshal, time.Duration(num)).Err()
 	if onlineErr != nil {
 		response.FailWithMessage("存入redis错误", c)
 		return

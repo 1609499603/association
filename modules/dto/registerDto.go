@@ -23,12 +23,12 @@ type RegTeacher struct {
 	//邮箱验证码
 	EmailStr string `json:"email_str"`
 	//用户id
-	UserId int64 `json:"user_id"`
+	UserId uint `json:"user_id"`
 }
 
 type RegStudent struct {
 	//学院
-	CollegeId int64 `json:"college_id"`
+	CollegeId uint `json:"college_id"`
 	//学号
 	StudentNumber string `json:"student_number"`
 	//姓名
@@ -46,7 +46,7 @@ type RegStudent struct {
 	//班级
 	Class string `json:"class"`
 	//用户id
-	UserId int64 `json:"user_id"`
+	UserId uint `json:"user_id"`
 }
 
 type RegEmail struct {

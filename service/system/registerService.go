@@ -3,11 +3,13 @@ package system
 import (
 	"association/global"
 	models "association/modules"
+	"association/utils"
 )
 
 type RegisterService struct{}
 
 func (r *RegisterService) InsertUser(u models.User) (err error) {
+	u.Password = utils.MD5V([]byte(u.Password))
 	err = global.ASS_DB.Create(&u).Error
 	return err
 }

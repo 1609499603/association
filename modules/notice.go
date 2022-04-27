@@ -1,9 +1,14 @@
 package models
 
+import (
+	"association/utils/snowflake"
+	"gorm.io/gorm"
+)
+
 // Notice 公告表
 type Notice struct {
-	//公告id
-	Id int64 `json:"id"`
+	gorm.Model
+
 	//公告标题
 	Title string `json:"title"`
 	//公告内容
@@ -11,8 +16,10 @@ type Notice struct {
 	//是否为平台通知
 	IsSystem int `json:"is_system"`
 	//所属社团id
-	AssociationId int64 `json:"association_id"`
+	AssociationId uint `json:"association_id"`
+}
 
-	//逻辑删除，记录时间
-	Record
+func (n *Notice) BeforeCreate(tx *gorm.DB) (err error) {
+	n.ID = uint(uint64(snowflake.GenID()))
+	return
 }
