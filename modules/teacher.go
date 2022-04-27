@@ -1,9 +1,14 @@
 package models
 
+import (
+	"association/utils/snowflake"
+	"gorm.io/gorm"
+)
+
 // Teacher 教师表
 type Teacher struct {
-	//教师id
-	Id int64 `json:"id"`
+	gorm.Model
+
 	//职工号
 	TeacherNumber string `json:"teacher_number"`
 	//学院
@@ -17,10 +22,12 @@ type Teacher struct {
 	//邮箱
 	Email string `json:"email"`
 	//用户id
-	UserId int64 `json:"user_id"`
+	UserId uint `json:"user_id"`
 	//所属社团id
-	AssociationId int64 `json:"association_id"`
+	AssociationId uint `json:"association_id"`
+}
 
-	//逻辑删除，记录时间
-	Record
+func (t *Teacher) BeforeCreate(tx *gorm.DB) (err error) {
+	t.ID = uint(uint64(snowflake.GenID()))
+	return
 }

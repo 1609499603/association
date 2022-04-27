@@ -47,7 +47,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 		}
 		//续签
 		a := mc.ExpiresAt - time.Now().Unix()
-		b := int64(86400000)
+		b := int64(86400)
 		if a < b {
 			claims := utils.CreateClaims(request.BaseClaims{
 				ID:        mc.BaseClaims.ID,
@@ -60,7 +60,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 				return
 			}
 			contextSet(c, mc)
-			c.Request.Header.Set("Authorization", token)
+			c.Request.Header.Set("Authorization", "Bearer"+" "+token)
 			c.Next()
 		}
 		// 将当前请求的username信息保存到请求的上下文c上

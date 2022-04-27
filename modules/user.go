@@ -1,9 +1,14 @@
 package models
 
+import (
+	"association/utils/snowflake"
+	"gorm.io/gorm"
+)
+
 // User 用户表
 type User struct {
-	//用户id
-	Id int64 `json:"id"`
+	gorm.Model
+
 	//账号
 	Username string `json:"username"`
 	//密码
@@ -12,13 +17,16 @@ type User struct {
 	Role int `json:"role"`
 	//身份(1普通，2副社长，3社长，4指导老师，5超级管理)
 	StatusId int `json:"status_id"`
-	//逻辑删除，记录时间
-	Record
+}
+
+func (u *User) BeforeCreate(tx *gorm.DB) (err error) {
+	u.ID = uint(uint64(snowflake.GenID()))
+	return
 }
 
 // OnlineUser 用户线上数据
 type OnlineUser struct {
-	Id            int64  `json:"id"`            //用户id
+	Id            uint   `json:"id"`            //用户id
 	Username      string `json:"username"`      //用户名
 	LoginTime     int64  `json:"loginTime"`     //登录时间
 	LoginLocation string `json:"loginLocation"` // 归属地

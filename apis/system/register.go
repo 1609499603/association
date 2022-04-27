@@ -6,7 +6,6 @@ import (
 	models "association/modules"
 	"association/modules/dto"
 	"association/utils"
-	"association/utils/snowflake"
 	"context"
 	"github.com/gin-gonic/gin"
 	"strconv"
@@ -26,29 +25,22 @@ func Register(c *gin.Context) {
 		response.FailWithMessage("username already exists", c)
 		return
 	}
-
-	u.Password = utils.MD5V([]byte(u.Password))
-	user := new(models.User)
-	utils.StructAssign(user, u)
-	user.Id = snowflake.GenID()
-	tm := utils.NowTime()
-	user.UpdateTime = tm
-	user.CreateTime = tm
+	user := models.User{
+		Username: u.Username,
+		Password: u.Password,
+		Role:     u.Role,
+	}
 	if u.Role == 0 {
 		user.StatusId = 1
 	} else if u.Role == 1 {
 		user.StatusId = 4
 	}
-	if err := registerService.InsertUser(*user); err != nil {
+	if err := registerService.InsertUser(user); err != nil {
 		response.FailWithMessage("insert error", c)
 		return
 	}
-
-	global.ASS_LOG.Info("User added successfully,UserID:" + strconv.FormatInt(user.Id, 10))
-	m := make(map[string]int64, 1)
-	m["id"] = user.Id
-	m["role"] = int64(user.Role)
-	response.OkWithData(m, c)
+	global.ASS_LOG.Info("User added successfully,UserID:" + strconv.FormatUint(uint64(user.ID), 10))
+	response.OkWithDetailed(gin.H{"ID": user.ID}, "注册成功", c)
 }
 
 // InsertTeacher 身份为老师
@@ -63,19 +55,21 @@ func InsertTeacher(c *gin.Context) {
 		response.FailWithMessage("Email verification code failed", c)
 		return
 	}
-	teacher := new(models.Teacher)
-	utils.StructAssign(teacher, t)
-	teacher.Id = snowflake.GenID()
-	teacher.AssociationId = 0
-	teacher.IsDeleted = 0
-	tm := utils.NowTime()
-	teacher.UpdateTime = tm
-	teacher.CreateTime = tm
-	if err := registerService.InsertTeacher(*teacher); err != nil {
+	teacher := models.Teacher{
+		TeacherNumber: t.TeacherNumber,
+		CollegeId:     t.CollegeId,
+		Name:          t.Name,
+		Gender:        t.Gender,
+		Phone:         t.Phone,
+		Email:         t.Email,
+		UserId:        t.UserId,
+	}
+
+	if err := registerService.InsertTeacher(teacher); err != nil {
 		response.FailWithMessage("insert error", c)
 		return
 	}
-	global.ASS_LOG.Info("Teacher added successfully,TeacherID:" + strconv.FormatInt(teacher.Id, 10))
+	global.ASS_LOG.Info("Teacher added successfully,TeacherName:" + teacher.Name)
 	response.Ok(c)
 }
 
@@ -91,20 +85,24 @@ func InsertStudent(c *gin.Context) {
 		response.FailWithMessage("Email verification code failed", c)
 		return
 	}
-	student := new(models.Student)
-	utils.StructAssign(student, s)
-	student.Id = snowflake.GenID()
-	student.AssociationId = 0
-	student.IsDeleted = 0
-	tm := utils.NowTime()
-	student.UpdateTime = tm
-	student.CreateTime = tm
 
-	if err := registerService.InsertStudent(*student); err != nil {
+	student := models.Student{
+		CollegeId:     s.CollegeId,
+		StudentNumber: s.StudentNumber,
+		Name:          s.Name,
+		Gender:        s.Gender,
+		Phone:         s.Phone,
+		Email:         s.Email,
+		Major:         s.Major,
+		Class:         s.Class,
+		UserId:        s.CollegeId,
+	}
+
+	if err := registerService.InsertStudent(student); err != nil {
 		response.FailWithMessage("insert error", c)
 		return
 	}
-	global.ASS_LOG.Info("Teacher added successfully,TeacherID:" + strconv.FormatInt(student.Id, 10))
+	global.ASS_LOG.Info("Teacher added successfully,StudentName:" + student.Name)
 	response.Ok(c)
 }
 
