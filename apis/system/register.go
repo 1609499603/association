@@ -8,7 +8,6 @@ import (
 	"association/utils"
 	"context"
 	"github.com/gin-gonic/gin"
-	"strconv"
 )
 
 // Register 注册
@@ -39,8 +38,8 @@ func Register(c *gin.Context) {
 		response.FailWithMessage("insert error", c)
 		return
 	}
-	global.ASS_LOG.Info("User added successfully,UserID:" + strconv.FormatUint(uint64(user.ID), 10))
-	response.OkWithDetailed(gin.H{"ID": user.ID}, "注册成功", c)
+	global.ASS_LOG.Info("User added successfully,Username:" + user.Username)
+	response.OkWithDetailed(gin.H{"StatusId": user.StatusId}, "注册成功", c)
 }
 
 // InsertTeacher 身份为老师

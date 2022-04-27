@@ -16,7 +16,7 @@ func (r *RegisterService) InsertUser(u models.User) (err error) {
 
 func (r *RegisterService) IsUsername(username string) (err error, s string) {
 	var userStruct models.User
-	err = global.ASS_DB.Table("users u").Where("u.username = ? AND u.is_deleted=0", username).Scan(&userStruct).Error
+	err = global.ASS_DB.Table("users u").Where("u.username = ? ", username).Scan(&userStruct).Error
 	if err != nil {
 		return err, ""
 	}

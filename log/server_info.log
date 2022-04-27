@@ -263,3 +263,13 @@
 [association]2022/04/26 - 22:00:56.789	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
 [association]2022/04/26 - 22:04:44.075	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
 [association]2022/04/26 - 22:04:46.236	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:87	用户:tanyilin,登录成功
+[association]2022/04/27 - 19:44:41.434	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/27 - 19:56:54.574	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/27 - 19:57:29.331	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:42	User added successfully,UserID:0
+[association]2022/04/27 - 19:58:23.232	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/27 - 19:58:56.109	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:42	User added successfully,UserID:0
+[association]2022/04/27 - 19:59:38.756	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/27 - 20:00:08.283	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:41	User added successfully,Username:tanyilin
+[association]2022/04/27 - 20:04:04.302	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:126	邮箱验证码:875496
+[association]2022/04/27 - 20:04:25.655	[34minfo[0m	D:/goProject/src/association/apis/system/register.go:104	Teacher added successfully,StudentName:谭怡林
+[association]2022/04/27 - 20:09:47.306	[34minfo[0m	D:/goProject/src/association/apis/system/userLogin.go:85	用户:tanyilin,登录成功
