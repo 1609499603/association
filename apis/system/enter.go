@@ -6,4 +6,5 @@ var (
 	registerService  = service.ServiceGroupApp.SystemServiceGroup.RegisterService
 	userLoginService = service.ServiceGroupApp.SystemServiceGroup.UserLoginService
 	homePageService  = service.ServiceGroupApp.SystemServiceGroup.HomePageService
+	personalService  = service.ServiceGroupApp.SystemServiceGroup.PersonalService
 )
