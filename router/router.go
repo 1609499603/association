@@ -39,7 +39,7 @@ func Run() {
 
 		//修改个人信息
 		personal.POST("/revise", system.RevisePersonal)
-
+ 
 	}
 	r.Run(":8080")
 }
