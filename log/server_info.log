@@ -304,3 +304,13 @@
 [association]2022/04/28 - 16:49:42.868	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
 [association]2022/04/28 - 16:51:02.692	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
 [association]2022/04/28 - 16:54:24.530	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/28 - 17:48:10.638	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/28 - 21:39:07.252	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/28 - 21:47:42.650	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/28 - 21:48:22.792	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/28 - 21:50:48.932	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/28 - 21:54:06.836	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/28 - 21:55:31.539	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/28 - 22:03:52.566	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/28 - 22:04:22.750	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
+[association]2022/04/28 - 22:09:33.102	[34minfo[0m	D:/goProject/src/association/initialize/redis.go:22	redis connect ping response:	{"result": "PONG"}
