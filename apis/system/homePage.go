@@ -3,7 +3,7 @@ package system
 import (
 	"association/common/response"
 	"association/global"
-	"association/modules/dto"
+	models "association/modules"
 	"context"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
@@ -17,7 +17,7 @@ func AssociationFirst(c *gin.Context) {
 	var i int64
 	var j int64 = 1
 	var k int64 = 0
-	m := make(map[string][]dto.AssPage)
+	m := make(map[string][]models.Association)
 	key := "all:association"
 
 	if number > pageSize {
@@ -50,7 +50,7 @@ func AssociationList(c *gin.Context) {
 	if err != nil {
 		response.Fail(c)
 	}
-	m := make(map[string][]dto.AssPage)
+	m := make(map[string][]models.Association)
 	_ = json.Unmarshal(bytes, &m)
 
 	response.OkWithDetailed(m["association"+strconv.FormatInt(pageNo, 10)], "成功", c)
@@ -61,7 +61,7 @@ func AssociationNameFirst(c *gin.Context) {
 	name := c.Query("name")
 	pageSize := global.ASS_CONFIG.System.PageSize
 	key := name + ":association"
-	m := make(map[string][]dto.AssPage)
+	m := make(map[string][]models.Association)
 	all, number := homePageService.AssociationName(name)
 	var i int64
 	var j int64 = 1
@@ -99,7 +99,7 @@ func AssociationName(c *gin.Context) {
 	if err != nil {
 		response.Fail(c)
 	}
-	m := make(map[string][]dto.AssPage)
+	m := make(map[string][]models.Association)
 	_ = json.Unmarshal(bytes, &m)
 
 	response.OkWithDetailed(m["association"+strconv.FormatInt(pageNo, 10)], "成功", c)

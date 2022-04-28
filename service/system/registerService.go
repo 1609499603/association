@@ -14,14 +14,9 @@ func (r *RegisterService) InsertUser(u models.User) (err error) {
 	return err
 }
 
-func (r *RegisterService) IsUsername(username string) (err error, s string) {
-	var userStruct models.User
+func (r *RegisterService) IsUsername(username string) (err error, userStruct models.User) {
 	err = global.ASS_DB.Table("users u").Where("u.username = ? ", username).Scan(&userStruct).Error
-	if err != nil {
-		return err, ""
-	}
-
-	return nil, userStruct.Username
+	return err, userStruct
 }
 
 func (r *RegisterService) InsertTeacher(t models.Teacher) (err error) {

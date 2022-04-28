@@ -38,3 +38,4 @@ casbin:
 
 system:
   ip2location_path: './IP2LOCATION-LITE-DB5.IPV6.BIN'
+  page_size: '5'

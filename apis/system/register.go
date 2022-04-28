@@ -39,7 +39,8 @@ func Register(c *gin.Context) {
 		return
 	}
 	global.ASS_LOG.Info("User added successfully,Username:" + user.Username)
-	response.OkWithDetailed(gin.H{"StatusId": user.StatusId}, "注册成功", c)
+	_, m := registerService.IsUsername(user.Username)
+	response.OkWithDetailed(gin.H{"statusId": user.StatusId, "Id": m.ID}, "注册成功", c)
 }
 
 // InsertTeacher 身份为老师
@@ -130,7 +131,7 @@ func Email(c *gin.Context) {
 // IsUsername 检查账号是否存在
 func IsUsername(username string) bool {
 	_, s := registerService.IsUsername(username)
-	if s == username {
+	if s.Username == username {
 		return true
 	}
 	return false
