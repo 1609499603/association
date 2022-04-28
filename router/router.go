@@ -24,15 +24,9 @@ func Run() {
 	auth := r.Group("/association")
 	auth.Use(middleware.JWTAuthMiddleware()).Use(middleware.CasbinHander())
 	{
-		//获取社团共有多少数据，多少页
-		auth.GET("/", system.AssociationFirst)
-		//获取当前页面用户信息
-		auth.GET("/all", system.AssociationList)
 
-		//根据社团名称检索后加入缓存 返回有多少数据，多少页
-		auth.GET("/name", system.AssociationNameFirst)
-		//返回根据社团名称检索的数据
-		auth.GET("/name/all", system.AssociationName)
+		//获取社团信息
+		auth.GET("/", system.AssociationList)
 
 		//登出
 		auth.DELETE("/logout", system.LogoutU)

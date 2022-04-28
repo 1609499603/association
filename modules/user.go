@@ -33,14 +33,3 @@ type OnlineUser struct {
 	Ip            string `json:"ip"`            //ip地址
 	Token         string `json:"key"`           // token
 }
-
-type LoginRes struct {
-	Username string `json:"username"`
-	Token    string `json:"token"`
-}
-
-type Context struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-	StatusId int    `json:"status_id"`
-}

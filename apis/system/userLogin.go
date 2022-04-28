@@ -25,7 +25,6 @@ func Login(c *gin.Context) {
 		response.FailWithMessage("账号不存在", c)
 		return
 	}
-	loginUser.Password = utils.MD5V([]byte(loginUser.Password))
 	u, loginErr := userLoginService.LoginUser(*loginUser)
 	if loginErr != nil {
 		global.ASS_LOG.Error("login failed username:" + loginUser.Username)
@@ -37,11 +36,11 @@ func Login(c *gin.Context) {
 	bytes, _ := global.ASS_REDIS.Get(context.Background(), strconv.FormatUint(uint64(u.ID), 10)).Bytes()
 	_ = json.Unmarshal(bytes, online)
 	if online.Token != "" {
-		response.OkWithDetailed(models.LoginRes{
-			Username: u.Username,
-			Token:    online.Token,
+		response.OkWithDetailed(gin.H{
+			"ID":    int64(u.ID),
+			"token": online.Token,
 		}, "登陆成功", c)
-		global.ASS_LOG.Info("用户:" + u.Username + ",登录成功")
+		global.ASS_LOG.Info("用户id:" + strconv.FormatUint(uint64(u.ID), 10) + ",登录成功")
 		return
 	}
 
@@ -78,11 +77,11 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	response.OkWithDetailed(models.LoginRes{
-		Username: u.Username,
-		Token:    token,
+	response.OkWithDetailed(gin.H{
+		"ID":    int64(u.ID),
+		"token": token,
 	}, "登陆成功", c)
-	global.ASS_LOG.Info("用户:" + u.Username + ",登录成功")
+	global.ASS_LOG.Info("用户id:" + strconv.FormatUint(uint64(u.ID), 10) + ",登录成功")
 
 }
 
