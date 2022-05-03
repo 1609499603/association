@@ -30,6 +30,12 @@ func Run() {
 		//登出
 		auth.DELETE("/logout", system.LogoutU)
 
+		//我的社团信息
+		auth.GET("/my", system.MyAssociation)
+
+		//发送通知
+		auth.POST("notice", system.SendNotice)
+
 	}
 	personal := r.Group("/personal")
 	personal.Use(middleware.JWTAuthMiddleware()).Use(middleware.CasbinHander())
@@ -39,6 +45,7 @@ func Run() {
 
 		//修改个人信息
 		personal.POST("/revise", system.RevisePersonal)
+
 	}
 	r.Run(":8080")
 }

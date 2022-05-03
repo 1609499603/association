@@ -83,3 +83,12 @@ func assPutRedis(name string) {
 
 	global.ASS_REDIS.Set(context.Background(), key, marshal, time.Hour*24*365*100)
 }
+
+// MyAssociation 我的社团
+func MyAssociation(c *gin.Context) {
+
+}
+
+func SendNotice(c *gin.Context) {
+	
+}
