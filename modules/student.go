@@ -27,8 +27,6 @@ type Student struct {
 	Class string `json:"class"`
 	//用户id
 	UserId uint `json:"user_id"`
-	//所属社团id
-	AssociationId uint `json:"association_id"`
 }
 
 func (s *Student) BeforeCreate(tx *gorm.DB) (err error) {

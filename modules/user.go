@@ -17,6 +17,8 @@ type User struct {
 	Role int `json:"role"`
 	//身份(1普通，2副社长，3社长，4指导老师，5超级管理)
 	StatusId int `json:"status_id"`
+	//所属社团id
+	AssociationId uint `json:"association_id"`
 }
 
 func (u *User) BeforeCreate(tx *gorm.DB) (err error) {

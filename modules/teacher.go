@@ -23,8 +23,6 @@ type Teacher struct {
 	Email string `json:"email"`
 	//用户id
 	UserId uint `json:"user_id"`
-	//所属社团id
-	AssociationId uint `json:"association_id"`
 }
 
 func (t *Teacher) BeforeCreate(tx *gorm.DB) (err error) {
