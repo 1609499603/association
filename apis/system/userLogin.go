@@ -37,7 +37,7 @@ func Login(c *gin.Context) {
 	_ = json.Unmarshal(bytes, online)
 	if online.Token != "" {
 		response.OkWithDetailed(gin.H{
-			"ID":    int64(u.ID),
+			"User":  u,
 			"token": online.Token,
 		}, "登陆成功", c)
 		global.ASS_LOG.Info("用户id:" + strconv.FormatUint(uint64(u.ID), 10) + ",登录成功")
@@ -78,7 +78,7 @@ func Login(c *gin.Context) {
 	}
 
 	response.OkWithDetailed(gin.H{
-		"ID":    int64(u.ID),
+		"User":  u,
 		"token": token,
 	}, "登陆成功", c)
 	global.ASS_LOG.Info("用户id:" + strconv.FormatUint(uint64(u.ID), 10) + ",登录成功")

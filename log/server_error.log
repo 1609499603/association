@@ -24,3 +24,13 @@
 [association]2022/04/23 - 16:24:38.496	[31merror[0m	D:/goProject/src/association/middleware/casbin_rbac.go:29	Casbin enforce failed,error:invalid policy size: expected 3, got 4, pvals: [/association/tyl GET 2 1]
 [association]2022/04/24 - 17:18:50.132	[31merror[0m	D:/goProject/src/association/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it."}
 [association]2022/04/25 - 16:22:40.995	[31merror[0m	D:/goProject/src/association/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it."}
+[association]2022/05/04 - 20:02:10.082	[31merror[0m	D:/goProject/src/association/utils/jwt.go:41	token error:token is expired by 24h21m25s
+[association]2022/05/04 - 20:15:13.193	[31merror[0m	D:/goProject/src/association/utils/jwt.go:41	token error:token is expired by 5m26s
+[association]2022/05/04 - 21:12:20.434	[31merror[0m	D:/goProject/src/association/utils/jwt.go:41	token error:token is expired by 1h2m33s
+[association]2022/05/05 - 15:05:49.302	[31merror[0m	D:/goProject/src/association/apis/system/homePage.go:207	++++redis: nil
+[association]2022/05/05 - 15:06:36.940	[31merror[0m	D:/goProject/src/association/apis/system/homePage.go:207	++++WRONGTYPE Operation against a key holding the wrong kind of value
+[association]2022/05/05 - 15:10:46.766	[31merror[0m	D:/goProject/src/association/apis/system/homePage.go:207	++++redis: nil
+[association]2022/05/05 - 15:13:09.024	[31merror[0m	D:/goProject/src/association/apis/system/homePage.go:208	++++redis: nil
+[association]2022/05/05 - 15:15:27.332	[31merror[0m	D:/goProject/src/association/apis/system/homePage.go:208	++++redis: nil
+[association]2022/05/05 - 15:18:39.264	[31merror[0m	D:/goProject/src/association/apis/system/homePage.go:209	++++redis: nil
+[association]2022/05/05 - 15:37:02.510	[31merror[0m	D:/goProject/src/association/apis/system/homePage.go:209	++++redis: nil

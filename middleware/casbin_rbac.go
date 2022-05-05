@@ -36,6 +36,5 @@ func CasbinHander() gin.HandlerFunc {
 			c.Abort()
 			return
 		}
-
 	}
 }

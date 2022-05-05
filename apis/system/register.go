@@ -95,7 +95,7 @@ func InsertStudent(c *gin.Context) {
 		Email:         s.Email,
 		Major:         s.Major,
 		Class:         s.Class,
-		UserId:        s.CollegeId,
+		UserId:        s.UserId,
 	}
 
 	if err := registerService.InsertStudent(student); err != nil {

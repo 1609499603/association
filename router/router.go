@@ -30,11 +30,29 @@ func Run() {
 		//登出
 		auth.DELETE("/logout", system.LogoutU)
 
+		//加入社团
+		auth.PUT("/join", system.Join)
+
+		//审批加入社团页面
+		auth.POST("/examine", system.Examine)
+
+		//同意加入社团
+		auth.POST("/agree_association", system.AgreeAssociation)
+
+		//退出社团
+		auth.PUT("/exit", system.Exit)
+
 		//我的社团信息
 		auth.GET("/my", system.MyAssociation)
 
+		//我的社团用户信息
+		auth.GET("/my_association_user", system.MyAssociationUser)
+
 		//发送通知
-		auth.POST("notice", system.SendNotice)
+		auth.POST("/send_notice", system.SendNotice)
+
+		//我的通知
+		auth.GET("/notice", system.Notice)
 
 	}
 	personal := r.Group("/personal")
