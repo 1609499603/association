@@ -44,46 +44,6 @@ func AssociationList(c *gin.Context) {
 	}
 }
 
-// 若name为空则是全部数据存入缓存，若name不为空则是检索name后存入缓存
-func assPutRedis(name string) {
-
-	var key string
-	var all []models.Association
-	var number int64
-	if name != "" {
-		key = name + ":association"
-		all, number = homePageService.AssociationName(name)
-	} else {
-		key = "all:association"
-		all, number = homePageService.AssociationNumber()
-	}
-	pageSize := global.ASS_CONFIG.System.PageSize
-
-	var i int64
-	var j int64 = 1
-	var k int64 = 0
-	m := make(map[string]interface{})
-
-	if number > pageSize {
-		for i = pageSize; i <= number; i += pageSize {
-			m["association"+strconv.FormatInt(j, 10)] = all[k:i]
-			j++
-			k += pageSize
-		}
-		if number%pageSize != 0 {
-			m["association"+strconv.FormatInt(j, 10)] = all[i-pageSize:]
-		}
-
-	} else {
-		m["association"+strconv.FormatInt(j, 10)] = all
-	}
-	m["index"] = j
-	m["number"] = number
-	marshal, _ := json.Marshal(m)
-
-	global.ASS_REDIS.Set(context.Background(), key, marshal, time.Hour*24*365*100)
-}
-
 // MyAssociation 我的社团
 func MyAssociation(c *gin.Context) {
 	getId, _ := c.Get("id")
@@ -129,43 +89,6 @@ func MyAssociationUser(c *gin.Context) {
 		}, c)
 	}
 
-}
-
-// AssUserPutRedis 社团所有用户存入redis
-func assUserPutRedis(associationId string) {
-
-	key := associationId
-	var all []models.User
-	var number int64
-
-	all, number = homePageService.SelectUserByAssociationId(associationId)
-
-	pageSize := global.ASS_CONFIG.System.PageSize
-
-	var i int64
-	var j int64 = 1
-	var k int64 = 0
-	m := make(map[string]interface{})
-
-	if number > pageSize {
-		for i = pageSize; i <= number; i += pageSize {
-			m["user"+strconv.FormatInt(j, 10)] = all[k:i]
-			j++
-			k += pageSize
-		}
-		if number%pageSize != 0 {
-			m["user"+strconv.FormatInt(j, 10)] = all[i-pageSize:]
-		}
-
-	} else {
-		m["user"+strconv.FormatInt(j, 10)] = all
-	}
-
-	m["index"] = j
-	m["number"] = number
-	marshal, _ := json.Marshal(m)
-
-	global.ASS_REDIS.Set(context.Background(), key, marshal, time.Hour*24*365*100)
 }
 
 // Exit 退出社团
@@ -271,12 +194,170 @@ func AgreeAssociation(c *gin.Context) {
 	response.OkWithMessage("加入社团成功", c)
 }
 
-// Notice 我的通知
+// Notice 我的通知列表(社团）
 func Notice(c *gin.Context) {
-
+	pageNo, _ := strconv.ParseInt(c.Query("page_no"), 10, 32)
+	getId, _ := c.Get("id")
+	id := cast.ToUint(getId)
+	user, _ := homePageService.SelectUserById(id)
+	AssociationId := strconv.FormatUint(uint64(user.AssociationId), 10)
+	key := "notice" + AssociationId
+	bytes, _ := global.ASS_REDIS.Get(context.Background(), key).Bytes()
+	if len(bytes) != 0 {
+		m := make(map[string]interface{})
+		_ = json.Unmarshal(bytes, &m)
+		response.OkWithData(gin.H{
+			"data":    m["notice"+strconv.FormatInt(pageNo, 10)],
+			"pageAll": cast.ToString(m["index"]),
+			"number":  cast.ToString(m["number"]),
+		}, c)
+	} else {
+		noticeRedis(AssociationId)
+		bytes, _ := global.ASS_REDIS.Get(context.Background(), key).Bytes()
+		m := make(map[string]interface{})
+		_ = json.Unmarshal(bytes, &m)
+		response.OkWithData(gin.H{
+			"data":    m["notice"+strconv.FormatInt(pageNo, 10)],
+			"pageAll": cast.ToString(m["index"]),
+			"number":  cast.ToString(m["number"]),
+		}, c)
+	}
 }
 
 // SendNotice 发送通知
 func SendNotice(c *gin.Context) {
+	homeDto := new(dto.SendNoticeDto)
+	err := c.ShouldBindJSON(homeDto)
+	if err != nil {
+		response.FailWithMessage("json 格式错误", c)
+		return
+	}
+	id, _ := strconv.ParseInt(homeDto.AssociationId, 10, 64)
+	notice := models.Notice{
+		Title:    homeDto.Title,
+		Content:  homeDto.Content,
+		IsSystem: int(id),
+	}
+	sendErr := homePageService.CreateNotice(notice)
+	if sendErr != nil {
+		response.FailWithMessage("发送失败", c)
+		return
+	}
+	key := "notice" + homeDto.AssociationId
+	global.ASS_REDIS.Del(context.Background(), key)
+	response.OkWithMessage("发送成功", c)
 
+}
+
+//通知列表存入redis
+func noticeRedis(associationId string) {
+	key := "notice" + associationId
+	var all []models.Notice
+	var number int64
+
+	all, number = homePageService.SelectNoticeByAssociationId(associationId)
+
+	pageSize := global.ASS_CONFIG.System.PageSize
+	var i int64
+	var j int64 = 1
+	var k int64 = 0
+	m := make(map[string]interface{})
+
+	if number > pageSize {
+		for i = pageSize; i <= number; i += pageSize {
+			m["notice"+strconv.FormatInt(j, 10)] = all[k:i]
+			j++
+			k += pageSize
+		}
+		if number%pageSize != 0 {
+			m["notice"+strconv.FormatInt(j, 10)] = all[i-pageSize:]
+		}
+
+	} else {
+		m["notice"+strconv.FormatInt(j, 10)] = all
+	}
+
+	m["index"] = j
+	m["number"] = number
+	marshal, _ := json.Marshal(m)
+
+	global.ASS_REDIS.Set(context.Background(), key, marshal, time.Hour*24*365*100)
+
+}
+
+// AssUserPutRedis 社团所有用户存入redis
+func assUserPutRedis(associationId string) {
+
+	key := associationId
+	var all []dto.AssociationContent
+	var number int64
+
+	all, number = homePageService.SelectUserByAssociationId(associationId)
+
+	pageSize := global.ASS_CONFIG.System.PageSize
+
+	var i int64
+	var j int64 = 1
+	var k int64 = 0
+	m := make(map[string]interface{})
+
+	if number > pageSize {
+		for i = pageSize; i <= number; i += pageSize {
+			m["user"+strconv.FormatInt(j, 10)] = all[k:i]
+			j++
+			k += pageSize
+		}
+		if number%pageSize != 0 {
+			m["user"+strconv.FormatInt(j, 10)] = all[i-pageSize:]
+		}
+
+	} else {
+		m["user"+strconv.FormatInt(j, 10)] = all
+	}
+
+	m["index"] = j
+	m["number"] = number
+	marshal, _ := json.Marshal(m)
+
+	global.ASS_REDIS.Set(context.Background(), key, marshal, time.Hour*24*365*100)
+}
+
+// 若name为空则是全部数据存入缓存，若name不为空则是检索name后存入缓存
+func assPutRedis(name string) {
+
+	var key string
+	var all []models.Association
+	var number int64
+	if name != "" {
+		key = name + ":association"
+		all, number = homePageService.AssociationName(name)
+	} else {
+		key = "all:association"
+		all, number = homePageService.AssociationNumber()
+	}
+	pageSize := global.ASS_CONFIG.System.PageSize
+
+	var i int64
+	var j int64 = 1
+	var k int64 = 0
+	m := make(map[string]interface{})
+
+	if number > pageSize {
+		for i = pageSize; i <= number; i += pageSize {
+			m["association"+strconv.FormatInt(j, 10)] = all[k:i]
+			j++
+			k += pageSize
+		}
+		if number%pageSize != 0 {
+			m["association"+strconv.FormatInt(j, 10)] = all[i-pageSize:]
+		}
+
+	} else {
+		m["association"+strconv.FormatInt(j, 10)] = all
+	}
+	m["index"] = j
+	m["number"] = number
+	marshal, _ := json.Marshal(m)
+
+	global.ASS_REDIS.Set(context.Background(), key, marshal, time.Hour*24*365*100)
 }

@@ -35,6 +35,7 @@ func Login(c *gin.Context) {
 
 	bytes, _ := global.ASS_REDIS.Get(context.Background(), strconv.FormatUint(uint64(u.ID), 10)).Bytes()
 	_ = json.Unmarshal(bytes, online)
+	u.Password = "******"
 	if online.Token != "" {
 		response.OkWithDetailed(gin.H{
 			"User":  u,
