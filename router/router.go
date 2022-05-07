@@ -51,7 +51,7 @@ func Run() {
 		//发送通知
 		auth.POST("/send_notice", system.SendNotice)
 
-		//我的通知
+		//我的通知列表（社团）
 		auth.GET("/notice", system.Notice)
 
 	}
@@ -61,8 +61,11 @@ func Run() {
 		//个人信息主页
 		personal.GET("/", system.Personal)
 
-		//修改个人信息
-		personal.POST("/revise", system.RevisePersonal)
+		//修改教师信息
+		personal.PUT("/revise_teacher", system.RevisePersonalTeacher)
+
+		//修改学生信息
+		personal.PUT("/revise_student", system.RevisePersonalStudent)
 
 	}
 	r.Run(":8080")
