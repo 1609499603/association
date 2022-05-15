@@ -133,7 +133,7 @@ func Join(c *gin.Context) {
 	}
 	result, _ := global.ASS_REDIS.HGet(context.Background(), key, id).Result()
 	if result != "" {
-		response.OkWithMessage("请不要重复申请", c)
+		response.FailWithMessage("请不要重复申请", c)
 		return
 	}
 	global.ASS_REDIS.HSet(context.Background(), key, id, "申请加入")
