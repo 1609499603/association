@@ -42,7 +42,7 @@ func Personal(c *gin.Context) {
 		}
 		response.OkWithData(gin.H{
 			"user":    user,
-			"student": teacher,
+			"teacher": teacher,
 		}, c)
 		return
 	}

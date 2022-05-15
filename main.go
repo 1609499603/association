@@ -4,6 +4,7 @@ import (
 	"association/global"
 	"association/initialize"
 	"association/initialize/mysql"
+	models "association/modules"
 	"association/router"
 	"association/utils"
 	"association/utils/logger"
@@ -29,6 +30,12 @@ func main() {
 	}
 	//初始化redis
 	initialize.Redis()
+
+	//初始化数据表
+	err := models.CreateTable()
+	if err != nil {
+		return
+	}
 
 	//初始化路由
 	router.Run()
